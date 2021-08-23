@@ -1,9 +1,9 @@
 <?php
 
 //conexion a la base de datos MySQL
-$servidor   = "xampp-mysql";
+$servidor   = "mysql-community-server";
 $puerto     = "3306";
-$hostname   = "localhost";
+$hostname   = "127.0.0.1";
 $db         = "ecoturismo";
 $usuario    = "root";
 $contrasena = "";

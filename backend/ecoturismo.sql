@@ -10,7 +10,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema ecoturismo
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `ecoturismo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+CREATE SCHEMA IF NOT EXISTS `ecoturismo` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 USE `ecoturismo` ;
 
 -- -----------------------------------------------------
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `ecoturismo`.`personas` (
   PRIMARY KEY (`id_usuario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 INSERT INTO `ecoturismo`.`personas`(`usuario`,`contrasena`,`nombre`,`apellido`,`correo`,`foto_perfil`) VALUES 
 ('acoby', 'acoby123','Andrés','Coby','acoby@gmail.com','https://i.imgur.com/PU4oYy0.png'),
@@ -51,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `ecoturismo`.`publicaciones` (
     REFERENCES `ecoturismo`.`personas` (`id_usuario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 INSERT INTO `ecoturismo`.`publicaciones`(`id_usuario`,`nombre`,`likes`) VALUES
 (1,'Aventura en el Spondilus',3),
@@ -78,7 +78,7 @@ CREATE TABLE IF NOT EXISTS `ecoturismo`.`comentarios` (
     REFERENCES `ecoturismo`.`publicaciones` (`id_publicacion`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 INSERT INTO `ecoturismo`.`comentarios`(`contenido`,`id_usuario`,`id_publicacion`) VALUES
 /*Ruta Spondilus*/ ('It is a very nice and quiet place to enjoy with friends the best beaches in Ecuador for its blue and transparent water.',1,1),
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `ecoturismo`.`etiquetas` (
   PRIMARY KEY (`id_etiqueta`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 INSERT INTO `ecoturismo`.`etiquetas`(`nombre`) VALUES
 ('fun'),('beach'),('accesible'),('comida'),('animales');
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `ecoturismo`.`rutas` (
     REFERENCES `ecoturismo`.`publicaciones` (`id_publicacion`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 INSERT INTO `ecoturismo`.`rutas`(`nombre`,`duracion`,`id_publicacion`) VALUES
 ('Ruta del Spondilus','2 semanas',1),
@@ -139,7 +139,7 @@ CREATE TABLE IF NOT EXISTS `ecoturismo`.`lugares` (
     REFERENCES `ecoturismo`.`rutas` (`id_ruta`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 INSERT INTO `ecoturismo`.`lugares`(`nombre`,`coordenadas`,`id_ruta`) VALUES 
 /*Ruta Spondilus*/('Salinas','-2.2055574942175413,-80.9672891324658',1),
@@ -174,7 +174,7 @@ CREATE TABLE IF NOT EXISTS `ecoturismo`.`fotos` (
     REFERENCES `ecoturismo`.`lugares` (`id_lugar`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 INSERT INTO `ecoturismo`.`fotos`(`url`,`id_lugar`) VALUES 
 ('https://i.imgur.com/iP8MxbU.jpg',1),
@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `ecoturismo`.`rel_rutaTag` (
     REFERENCES `ecoturismo`.`etiquetas` (`id_etiqueta`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
+COLLATE = utf8mb4_general_ci;
 
 INSERT INTO `ecoturismo`.`rel_rutaTag`(`id_ruta`,`id_etiqueta`) VALUES 
 (1,1),(1,2),(1,4),
