@@ -6,7 +6,7 @@ $puerto     = "3306";
 $hostname   = "127.0.0.1";
 $db         = "ecoturismo";
 $usuario    = "root";
-$contrasena = "Elpepe593_asd";
+$contrasena = "";
 
 $link = mysqli_connect( $hostname,
                         $usuario,
