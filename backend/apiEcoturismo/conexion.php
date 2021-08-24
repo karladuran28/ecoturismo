@@ -7,7 +7,7 @@ function obtenerConexion(){
     $hostname   = "127.0.0.1";
     $db         = "ecoturismo";
     $usuario    = "root";
-    $contrasena = "root";
+    $contrasena = "";
     
     $link = mysqli_connect( $hostname,
                             $usuario,
