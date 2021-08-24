@@ -44,8 +44,4 @@ function obtenerInfoFromTabla($nombreTabla){
 
 
 
-
-
-
-
 ?>

@@ -2,12 +2,13 @@
 
 include_once 'cors.php';
 include_once 'conexion.php';
-$etiquetas = ["nombre"=>"animales2"];
 
+
+$nombre = $_POST['nombre'];
 
 $bd = obtenerConexion();
 $sql = 'INSERT INTO etiquetas (nombre) 
-            VALUES ("' . $etiquetas["nombre"] . '") ';
+            VALUES ("' . $nombre . '") ';
     
 if( mysqli_query($bd, $sql) ){
         echo "Se insertó el elemento exitosamente";

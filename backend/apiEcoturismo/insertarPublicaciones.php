@@ -2,20 +2,25 @@
 
 include_once 'cors.php';
 include_once 'conexion.php';
-$publicacion = ["id_usuario"=> 5, "nombre"=>"Nueva publicacion", "likes"=> 4];
 
 $bd = obtenerConexion();
-    $sql = 'INSERT INTO publicaciones (id_usuario,nombre,likes) 
-            VALUES ("' . $publicacion["id_usuario"] . '", 
-            "' . $publicacion["nombre"] . '",
-            ' . $publicacion["likes"] . ')';
+
+$id_usuario = $_POST['id_usuario'];
+$nombre = $_POST['nombre'];
+$likes = $_POST['likes'];
+
+
+$sql = 'INSERT INTO publicaciones (id_usuario,nombre,likes) 
+            VALUES ("' . $id_usuario . '", 
+            "' . $nombre . '",
+            ' . $likes . ')';
     
-    if( mysqli_query($bd, $sql) ){
+if( mysqli_query($bd, $sql) ){
         echo "Se insertó el elemento exitosamente";
-    }
-    else{
+}
+else{
         echo "Error" . $sql . mysqli_error($bd);
-    }
-    cerrarConexion($bd); 
+}
+cerrarConexion($bd); 
 
 ?>
