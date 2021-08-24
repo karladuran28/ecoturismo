@@ -6,14 +6,12 @@ $puerto     = "3306";
 $hostname   = "127.0.0.1";
 $db         = "ecoturismo";
 $usuario    = "root";
-$contrasena = "root";
+$contrasena = "Elpepe593_asd";
 
 $link = mysqli_connect( $hostname,
                         $usuario,
                         $contrasena,
-                        $db);
-
-
+                        $db);   
 //confirmar conexion
 if ( $link === false ){
     die("ERROR: No se pudo conectar a la base de datos. " . mysqli_connect_error());
