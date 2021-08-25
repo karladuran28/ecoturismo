@@ -36,7 +36,7 @@ function validarUsuario($cadena){
     return !$esta_enBase;
 }
 
-echo (validarUsuario("acoby") ? "usuario valido" : "usuario no valido"); 
+//echo (validarUsuario("acoby") ? "usuario valido" : "usuario no valido"); 
 
 function validarContrasena($cadena){
 
@@ -44,20 +44,21 @@ function validarContrasena($cadena){
 
 }
 
-echo (validarContrasena("aco!!!456#@") ? "Contrasena valida" : "Contrasena no valida"); 
+//echo (validarContrasena("aco!!!456#@") ? "Contrasena valida" : "Contrasena no valida"); 
 
 /* también sirve para validar apellido*/
 function validarNombre($cadena){
 
-    return preg_match("/^[a-zA-Z][a-zA-Z]{2,}$/", $cadena);
+    return preg_match("/^[a-zA-Z]{2,}$/", $cadena);
 
 }
 
 function validarCorreo($cadena){
 
-    return preg_match("/^[a-z]+[a-z0-9_\.]*@[a-z]{2,15}(\.edu)?\.[a-z]{2,4}$/");
+    return preg_match("/^[a-z]+[a-z0-9_\.]*@[a-z]{2,15}(\.edu)?\.[a-z]{2,4}$/", $cadena);
 
 }
 
+echo (validarCorreo("kaduran1998@gmail") ? "Correo valido" : "Correo no valido");
 
 ?>
