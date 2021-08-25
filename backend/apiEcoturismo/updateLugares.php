@@ -11,8 +11,8 @@ $coordenadas = $_POST['coordenadas'];
 $id_ruta = $_POST['id_ruta'];
 
 $sql =  'UPDATE lugares
-            SET nombre= "' . $nombre . '", coordenadas = "' . $coordenadas . '"
-            WHERE id_lugar = "' . $id_ruta.'" ';
+            SET nombre= "' . $nombre . '", coordenadas = "' . $coordenadas . '", id_ruta = "' . $id_ruta . '"
+            WHERE id_lugar = "' . $id_lugar.'" ';
     
 if( mysqli_query($bd, $sql) ){
         echo "Se actualizó el elemento exitosamente";

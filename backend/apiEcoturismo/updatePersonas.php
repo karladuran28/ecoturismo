@@ -9,7 +9,7 @@ $contrasena = $_POST['contrasena'];
 $apellido = $_POST['apellido'];
 $correo = $_POST['correo'];
 $foto_perfil = $_POST['foto_perfil'];
-$id_persona = $_POST['id_persona'];
+$id_usuario = $_POST['id_usuario'];
 
 
 $bd = obtenerConexion();
@@ -21,7 +21,7 @@ $sql =  'UPDATE personas
            apellido =  "' . $apellido . '",
            correo =  "' . $correo . '", 
            foto_perfil = "' . $foto_perfil . '") 
-            WHERE id_persona = "' . $id_persona.'" ';
+            WHERE id_usuario = "' . $id_usuario .'" ';
     
 if( mysqli_query($bd, $sql) ){
         echo "Se actualizó el elemento exitosamente";
