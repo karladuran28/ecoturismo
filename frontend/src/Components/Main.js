@@ -1,10 +1,12 @@
 import React, {useState, useEffect} from 'react';
+import LeftMenu from './LeftMenu';
+import Navbar from './navbar';
 
 const Main = () => {
     const [lista, setLista] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost/apiEcoturismo")
+        fetch("http://localhost/ecoturismo/backend/apiEcoturismo/obtenerComentarios.php")
           .then(response => response.json())
           .then(data => {
             setLista(data)
@@ -17,7 +19,8 @@ const Main = () => {
 
     return(
         <div>
-            HOLA
+            <Navbar />
+            <LeftMenu />
         </div>
 
     )
