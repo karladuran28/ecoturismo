@@ -1,0 +1,15 @@
+.tarjeta_lugar{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 3%;
+
+}
+
+.foto_lugar{
+    margin: 10px;
+}
+
+.img-l{
+    cursor: pointer;
+    
+}

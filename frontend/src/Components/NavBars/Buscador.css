@@ -1,0 +1,17 @@
+::placeholder {
+    color: purple !important;
+}
+
+.tag_lugares{
+    color: purple;
+    border-bottom: 1px solid purple;
+    width: 85px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    font-weight: bolder;
+
+}
+
+#root{
+    overflow-x: hidden;
+}

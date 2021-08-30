@@ -1,0 +1,31 @@
+.nav_container * {
+    margin: 0;
+    padding: 0;
+}
+.nav_container {
+    position: fixed;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 2.5rem;
+    background: linear-gradient(to right, #8c00ff,  #9a41ff,#ff40c6);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav_container a {
+    text-decoration: none;
+    color: white;
+    font-size: 0.9rem;
+}
+.nav_logo {
+    width: 85%;
+    margin: 0 10px;
+}
+.nav_logo__bold{
+    font-weight: bold;
+}
+.nav_usuario {
+    margin: 0 10px;
+}
