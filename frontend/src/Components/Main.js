@@ -21,11 +21,15 @@ const Main = () => {
     const RenderLugares = () =>{
         return (
             <div className="tarjeta_lugar">
-            {fotos.map( foto => (
-                //<div className="card foto_lugar" id={foto.id} style={{width: "46%"}}>
-                    <img src={foto.url} id={foto.id} className="card-img-top foto_lugar" style={{maxWidth: "46%"}}/>
-                    
-                //</div>
+            {fotos.map( foto => (   
+                
+                <img src={foto.url} 
+                    id={foto.id_foto} 
+                    className="card-img-top foto_lugar" 
+                    style={{maxWidth: "46%"}}
+                    onClick= {()=> document.location.href=`/detallelugar/${foto.id_foto}`}
+                    />
+                
             ) )
             }
         </div>
