@@ -7,7 +7,7 @@ function obtenerConexion(){
     $hostname   = "127.0.0.1";
     $db         = "ecoturismo";
     $usuario    = "root";
-    $contrasena = "";
+    $contrasena = "root";
     
     $link = mysqli_connect( $hostname,
                             $usuario,
@@ -32,11 +32,12 @@ function cerrarConexion($bd){
 function obtenerInfoFromTabla($nombreTabla){
     $bd = obtenerConexion();
     $sql = 'SELECT * from ' . $nombreTabla;
-    $publicaciones = array();
+    $informacion = array();
     $resultado = mysqli_query($bd, $sql);
     while($fila=$resultado->fetch_assoc()){
-        echo json_encode($fila);
+        array_push($informacion, $fila);
     }
+    echo json_encode($informacion);
     $resultado->free();
     cerrarConexion($bd);    
 }

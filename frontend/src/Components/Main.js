@@ -4,7 +4,7 @@ const Main = () => {
     const [lista, setLista] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost/apiEcoturismo")
+        fetch("http://localhost:3000/backend/apiEcoturismo/obtenerPersonas.php")
           .then(response => response.json())
           .then(data => {
             setLista(data)
