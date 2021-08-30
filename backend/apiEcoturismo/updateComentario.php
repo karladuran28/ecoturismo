@@ -7,13 +7,12 @@ $bd = obtenerConexion();
 
 
 $contenido = $_POST['contenido'];
-$id_usuario = $_POST['id_usuario'];
-$id_publicacion = $_POST['id_publicacion'];
+$id_comentario = $_POST['id_comentario'];
 
 
 $sql =  'UPDATE comentarios
-        SET contenido = "' . $contenido . '",  id_usuario = "' . $id_usuario . '", id_publicacion = "' . $id_publicacion . '" 
-        WHERE id_usuario = "' . $id_usuario .'" and id_publicacion = "' . $id_publicacion . '" ';
+        SET contenido = "' . $contenido . '" 
+        WHERE id_comentario = "' . $id_comentario .'"';
 
 
 if( mysqli_query($bd, $sql) ){

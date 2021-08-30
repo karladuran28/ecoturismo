@@ -5,7 +5,7 @@ include_once 'conexion.php';
 
 
 $nombre = $_POST['nombre'];
-$nombre = $_POST['id_etiqueta'];
+$id_etiqueta = $_POST['id_etiqueta'];
 
 $bd = obtenerConexion();
 
