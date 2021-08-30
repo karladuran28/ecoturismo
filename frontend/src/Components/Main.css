@@ -7,9 +7,6 @@
 
 .foto_lugar{
     margin: 10px;
+    cursor: pointer;
 }
 
-.img-l{
-    cursor: pointer;
-    
-}

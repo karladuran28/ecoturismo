@@ -22,10 +22,10 @@ const Main = () => {
         return (
             <div className="tarjeta_lugar">
             {fotos.map( foto => (
-                <div className="card foto_lugar" id={foto.id} style={{width: "250px"}}>
-                <img src={foto.url} className="card-img-top img-l" />
+                //<div className="card foto_lugar" id={foto.id} style={{width: "46%"}}>
+                    <img src={foto.url} id={foto.id} className="card-img-top foto_lugar" style={{maxWidth: "46%"}}/>
                     
-                </div>
+                //</div>
             ) )
             }
         </div>
