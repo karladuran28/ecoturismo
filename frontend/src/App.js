@@ -2,7 +2,7 @@ import './App.css';
 import Main from './Components/Main';
 import NavBar from './Components/NavBars/Navbar';
 import LeftMenu from './Components/NavBars/LeftMenu';
-import Lugar from './Components/Lugares/Lugar';
+import Publicacion from './Components/Publicacion';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
@@ -14,12 +14,10 @@ function App() {
       <div style = {{ marginTop:"3rem", marginLeft: "180px"}}>
       <Router>
           <Switch>
-            <Route path="/" exact component={Main}/>
-            <Route path="/detallelugar/:id" exact component={Lugar}/>
+            <Route path={`/pub/:id`} exact component={Publicacion} />
+            <Route path={`/`} component={Main} />
           </Switch>
       </Router>
-        
-        
       </div>      
     </React.StrictMode>
   );

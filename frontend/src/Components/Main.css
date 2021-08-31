@@ -1,12 +1,19 @@
 .tarjeta_lugar{
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
     margin: 3%;
 
 }
 
+.tarjeta_lugar a {
+    width: 30%;
+    margin: 0.8rem;
+}
+
 .foto_lugar{
-    margin: 10px;
     cursor: pointer;
+    width: 100%;
+    height: 100%;
 }
 

@@ -1,0 +1,116 @@
+.publicacion_container {
+    margin: 0.6rem 2rem;
+    padding: 0;
+    width: 84%;
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    height: 85vh;
+}
+
+.publicacion_panel_izq {
+    width: 65%;
+    overflow-y: scroll;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(194, 194, 194); 
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(182, 182, 182); 
+}
+
+.publicacion_panel_der {
+    border-left: 1px solid #f0efef;
+    padding-left: 1rem;
+    padding-right: 1.5rem;
+    width: 35%;
+}
+
+.publicacion_usuario{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.usuario_foto_icono {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+}
+
+.publicacion_nombre_usuario {
+    font-weight: bold;
+    margin: 0;
+}
+
+.publicacion_likes {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.icon_like {
+    width: 25px;
+    height: 25px;
+    margin-right: 0.5rem;
+}
+
+.icon_tag {
+    width: 17px;
+    height: 17px;
+    margin-right: 0.5rem;
+}
+
+#num_likes {
+    margin: 0;
+    font-weight: bold;
+    color: #9201a0;
+}
+
+.publicacion_tags {
+    display: flex;
+    flex-direction: row;
+}
+
+.publicacion_tag_icono {
+    padding-left: 5px;
+}
+
+.publicacion_tag_lista {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pub_titulo {
+    font-size: 20px;
+    margin: 0.8rem;
+    font-weight: 500;
+    color: #313131;
+}
+
+.pub_subtitulo {
+    font-size: 15px;
+    margin: 0.8rem;
+    font-weight: 400;
+    color: #5d5d5d;
+}
