@@ -1,10 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
+import { GoogleMap, useJsApiLoader, Marker, OverlayView } from '@react-google-maps/api';
 import './mapa.css';
 
 const Mapa = ({lugares}) => {
-
-    console.log(lugares);
 
     const [map, setMap] = useState(null);
     const [center, setCenter] = useState({lat: -3.7, lng: -50.52}); /* lat - lng */
@@ -48,13 +46,31 @@ const Mapa = ({lugares}) => {
             >
                 {lugares.map((item, index) => {
                     let c = item["coordenadas"]?.split(",");
-                    console.log(c);
                     let lat = parseFloat(c?.[0]);
                     let lng = parseFloat(c?.[1]);
-                    return <Marker key={index} position={{ lat: lat, lng: lng}}/>
+                    return <div key={`${index}`}>
+                                <OverlayView
+                                    key={`${index}_ov`}
+                                    position={{ lat: lat, lng: lng}}
+                                    mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+                                    >
+                                    <div style={{background: "#ffffffbe",
+                                                padding: "0.3rem",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                borderRadius: "5px"
+                                                }}>
+                                        <p style={{margin: 0}}>
+                                            {item["nombre"]}
+                                        </p>
+                                    </div>
+                                </OverlayView>
+                                <Marker 
+                                    key={index} 
+                                    position={{ lat: lat, lng: lng}}
+                                />
+                            </div>
                 })}
-                
-                <></>
             </GoogleMap>
         </div>
     ) : <></>
