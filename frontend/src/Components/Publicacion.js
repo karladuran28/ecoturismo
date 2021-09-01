@@ -5,6 +5,7 @@ import PanelComentarios from './PanelComentarios';
 import './publicacion.css';
 import Etiqueta from './Etiqueta';
 import LugarCarousel from './LugarCarousel';
+import Mapa from './Mapa';
 
 const Publicacion = () => {
     const [idPublicacion,   setIdPublicacion]   = useState('');
@@ -99,9 +100,11 @@ const Publicacion = () => {
                                 <p className="pub_subtitulo">{ nombreRuta } - { duracionRuta }</p>
                                 <hr/>
                             </div>
+                            <Mapa lugares={ lugares }/>
                         </div>
                         <div className="pub_lugares_container">
                             <div className="pub_container_titulo">
+                                <hr/>
                                 <p className="pub_subtitulo">Lugares</p>
                                 <hr/>
                             </div>
