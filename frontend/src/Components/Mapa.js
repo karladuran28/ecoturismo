@@ -5,7 +5,8 @@ import './mapa.css';
 const Mapa = ({lugares}) => {
 
     const [map, setMap] = useState(null);
-    const [center, setCenter] = useState({lat: -3.7, lng: -50.52}); /* lat - lng */
+    const [center, setCenter] = useState({  lat: -1.256304064585681, 
+                                            lng: -78.7239311936696}); /* lat - lng */
 
     useEffect(() => {
         const coord = lugares?.[2]?.["coordenadas"]?.split(",");
