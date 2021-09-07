@@ -46,6 +46,7 @@ const Main = () => {
     }
 
     const RenderLugares = () =>{
+     
 
         return (
             <div className="tarjeta_lugar">

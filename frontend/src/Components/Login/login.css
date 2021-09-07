@@ -7,3 +7,8 @@
     filter:brightness(0.5);
     z-index: -100;
 }
+
+
+.form-group { height: 400px; width: 500px; align-content: center; }
+.containerSecundario {align-content: center; }
+

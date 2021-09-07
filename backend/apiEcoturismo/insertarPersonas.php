@@ -14,7 +14,7 @@ $foto_perfil = $_POST['foto_perfil'];
 $bd = obtenerConexion();
 $sql = 'INSERT INTO personas (usuario,contrasena,nombre,apellido,correo,foto_perfil) 
             VALUES ("' . $usuario . '", 
-            "' . $contrasena . '",
+            "' . md5($contrasena) . '",
             "' . $nombre . '",
             "' . $apellido . '",
             "' . $correo . '", 

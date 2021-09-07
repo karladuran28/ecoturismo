@@ -8,6 +8,7 @@ function obtenerConexion(){
     $db         = "ecoturismo";
     $usuario    = "root";
     $contrasena = "root";
+
     
     $link = mysqli_connect( $hostname,
                             $usuario,

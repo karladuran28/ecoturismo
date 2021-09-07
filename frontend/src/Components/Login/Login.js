@@ -1,12 +1,95 @@
-import React from 'react';
-import "./login.css"
+import React,{ Component } from 'react';
+import "./login.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+import md5 from 'md5';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
+const baseUrl=`http://localhost/ecoturismo/backend/apiEcoturismo/updateEtiquetas.php`;
+class Login extends Component {
+    state={
+        form:{
+            usuario: '',
+            contraseña: ''
+        }
+    }
 
-const Login = () => {
-    return (
-        <div>
-            <p>Iniciar Sesión</p>
+    handleChange=async e=>{
+        await this.setState({
+            form:{
+                ...this.state.form,
+                [e.target.name]: e.target.value
+            }
+        });
+    }
+
+    iniciarSesion=async()=>{
+        await axios.get(baseUrl, {params: {username: this.state.form.usuario, password: this.state.form.contraseña}})
+        .then(response=>{
+            console.log(response.data)
+            return response.data;
+          
+        })
+        .then(response=>{
+            if(response.length>0){
+                var respuesta=response[0];
+                
+                cookies.set('id_usuario', respuesta.id_usuario, {path: "/"});
+                cookies.set('apellido', respuesta.apellido, {path: "/"});
+                cookies.set('nombre', respuesta.nombre, {path: "/"});
+                cookies.set('usuario', respuesta.usuario, {path: "/"});
+                alert(`Bienvenido ${respuesta.nombre} ${respuesta.apellido}`);
+                window.location.href="./menu";
+            }else{
+                alert('El usuario o la contraseña no son correctos');
+            }
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+
+    }
+
+    componentDidMount() {
+        if(cookies.get('username')){
+           
+           /* window.location.href="./menu";*/
+        }
+    }
+    
+/**/
+    render() {
+        return (
+   
+
+    <div className="containerPrincipal">
+        <div className="containerSecundario">
+          <div className="form-group">
+            <label>Usuario: </label>
+            <br />
+            <input
+              type="text"
+              className="form-control"
+              name="usuario"
+              onChange={this.handleChange}
+            />
+            <br />
+            <label>Contraseña: </label>
+            <br />
+            <input
+              type="password"
+              className="form-control"
+              name="contraseña"
+              onChange={this.handleChange}
+            />
+            <br />
+            <button className="btn btn-primary" onClick={()=> this.iniciarSesion()} >Iniciar Sesión</button>
+            
+          </div>
         </div>
-    )
+      </div>
+        );
+    }
 }
 
 export default Login;
