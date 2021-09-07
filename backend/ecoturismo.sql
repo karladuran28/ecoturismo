@@ -53,6 +53,24 @@ ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_general_ci;
 
+alter table publicaciones add (
+imagen_representativa TEXT NOT NULL);
+
+alter table publicaciones add(
+id_foto INT NOT NULL);
+
+
+UPDATE `ecoturismo`.`publicaciones` SET `imagen_representativa` = 'https://i.imgur.com/iP8MxbU.jpg' WHERE (`id_publicacion` = '1');
+UPDATE `ecoturismo`.`publicaciones` SET `imagen_representativa` = 'https://i.imgur.com/L7lg7iN.jpg' WHERE (`id_publicacion` = '2');
+UPDATE `ecoturismo`.`publicaciones` SET `imagen_representativa` = 'https://i.imgur.com/DZtEmnJ.jpg' WHERE (`id_publicacion` = '3');
+UPDATE `ecoturismo`.`publicaciones` SET `imagen_representativa` = 'https://i.imgur.com/3C8AAin.jpg' WHERE (`id_publicacion` = '4');
+
+UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '1' WHERE (`id_publicacion` = '1');
+UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '6' WHERE (`id_publicacion` = '2');
+UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '10' WHERE (`id_publicacion` = '3');
+UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '14' WHERE (`id_publicacion` = '4');
+
+
 INSERT INTO `ecoturismo`.`publicaciones`(`id_usuario`,`nombre`,`likes`) VALUES
 (1,'Aventura en el Spondilus',3),
 (2,'La Mitad del Mundo',2),
@@ -218,6 +236,7 @@ INSERT INTO `ecoturismo`.`rel_rutaTag`(`id_ruta`,`id_etiqueta`) VALUES
 (2,4),(2,5),
 (3,3),
 (4,1),(4,5);
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
