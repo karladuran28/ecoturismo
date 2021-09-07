@@ -15,3 +15,17 @@
 #root{
     overflow-x: hidden;
 }
+
+.buscador{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton_busqueda{
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin-right: 0.5rem;
+}

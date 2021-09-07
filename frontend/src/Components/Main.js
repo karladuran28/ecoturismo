@@ -43,7 +43,7 @@ const Main = () => {
         return result;
     }
 
-    const RenderLugares = () =>{
+    const RenderLugares = ({fotos}) =>{
      
 
         return (
@@ -78,7 +78,7 @@ const Main = () => {
     return(
         <div >
             <Buscador />
-            <RenderLugares />
+            <RenderLugares fotos={fotos}/>
             
         </div>
 
