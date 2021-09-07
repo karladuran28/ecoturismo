@@ -8,7 +8,7 @@ function Buscador() {
             <div className="row">
                 <div className="col-2">
                     <div className="tag_lugares">
-                        Lugares
+                        Rutas
                     </div>
                 </div>
                 <div className="col-6">

@@ -5,7 +5,7 @@ include_once 'conexion.php';
 
 
 $bd = obtenerConexion();
-
+$_POST = json_decode(file_get_contents('php://input'), true);
 $url = $_POST['url'];
 $id_lugar = $_POST['id_lugar'];
 

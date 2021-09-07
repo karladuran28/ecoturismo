@@ -4,6 +4,7 @@ include_once 'cors.php';
 include_once 'conexion.php';
 
 $bd = obtenerConexion();
+$_POST = json_decode(file_get_contents('php://input'), true);
 
 $id_ruta = $_POST['id_ruta'];
 $id_etiqueta = $_POST['id_etiqueta'];

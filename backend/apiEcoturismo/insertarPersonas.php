@@ -3,6 +3,7 @@
 include_once 'cors.php';
 include_once 'conexion.php';
 
+$_POST = json_decode(file_get_contents('php://input'), true);
 $usuario = $_POST['usuario'];
 $nombre = $_POST['nombre']; 
 $contrasena = $_POST['contrasena'];
