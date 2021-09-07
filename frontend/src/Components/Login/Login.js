@@ -6,7 +6,7 @@ import axios from 'axios';
 import md5 from 'md5';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
-const baseUrl=`http://localhost/ecoturismo/backend/apiEcoturismo/updateEtiquetas.php`;
+const baseUrl=`http://localhost/ecoturismo/backend/apiEcoturismo/logging.php`;
 
 class Login extends Component {
     state={
@@ -44,6 +44,7 @@ class Login extends Component {
                 cookies.set('usuario', respuesta.usuario, {path: "/"});
                 alert(`Bienvenido ${respuesta.usuario} ${respuesta.apellido}`);
                 this.props.setIsLoggedin(true);
+                console.log("elpepe")
                 
                 /*window.location.href="./menu";*/
                 

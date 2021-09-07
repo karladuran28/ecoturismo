@@ -24,7 +24,8 @@ function App() {
       </Router>
       </div>      
     </React.StrictMode>
-  ) : (
+  )
+  : ( 
     /* si el usuario no ha iniciado sesión */
     <React.StrictMode>
       <NavBar isLoggedIn={ isLoggedIn}/>

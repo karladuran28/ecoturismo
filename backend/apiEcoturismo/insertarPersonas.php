@@ -3,6 +3,7 @@
 include_once 'cors.php';
 include_once 'conexion.php';
 
+$_POST = json_decode(file_get_contents('php://input'), true);
 $usuario = $_POST['usuario'];
 $nombre = $_POST['nombre']; 
 $contrasena = $_POST['contrasena'];
@@ -14,7 +15,7 @@ $foto_perfil = $_POST['foto_perfil'];
 $bd = obtenerConexion();
 $sql = 'INSERT INTO personas (usuario,contrasena,nombre,apellido,correo,foto_perfil) 
             VALUES ("' . $usuario . '", 
-            "' . $contrasena . '",
+            "' . md5($contrasena) . '",
             "' . $nombre . '",
             "' . $apellido . '",
             "' . $correo . '", 

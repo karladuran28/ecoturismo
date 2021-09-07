@@ -4,6 +4,7 @@ include_once 'cors.php';
 include_once 'conexion.php';
 
 $bd = obtenerConexion();
+$_POST = json_decode(file_get_contents('php://input'), true);
 
 $nombre = $_POST['nombre'];
 $duracion = $_POST['duracion'];
