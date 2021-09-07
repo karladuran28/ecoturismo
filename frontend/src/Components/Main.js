@@ -8,7 +8,7 @@ const Main = () => {
     const [fotosPub, setFotosPub] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost/ecoturismo/backend/apiEcoturismo/obtenerPublicaciones.php")
+        fetch("http://localhost/ecoturismo/backend/apiEcoturismo/obtenerFotos.php")
           .then(response => response.json())
           .then(data => {
             setFotos(data)
