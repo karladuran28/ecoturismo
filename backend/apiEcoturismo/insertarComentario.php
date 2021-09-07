@@ -5,7 +5,7 @@ include_once 'conexion.php';
 
 
 $bd = obtenerConexion();
-$comentario = ["contenido"=>"HOLA2", "id_usuario"=>1, "id_publicacion"=> 2];
+$_POST = json_decode(file_get_contents('php://input'), true);
 
 $contenido = $_POST['contenido'];
 $id_usuario = $_POST['id_usuario'];

@@ -141,7 +141,7 @@ const Publicacion = () => {
                             </div>
                         </div>
                         {/* comentarios */}
-                        <PanelComentarios comentarios={comentarios} usuario={usuario}/>
+                        <PanelComentarios usuario={usuario} id_publicacion={idPublicacion}/>
                     </div>
 
                 </div>

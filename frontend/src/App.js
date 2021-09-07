@@ -12,7 +12,7 @@ function App() {
 
   const isLoggedIn = false;
 
-  return isLoggedIn ? (
+  return (/* isLoggedIn ? (*/
     <React.StrictMode>
       <NavBar isLoggedin={ isLoggedIn } />
       <LeftMenu />
@@ -25,9 +25,10 @@ function App() {
       </Router>
       </div>      
     </React.StrictMode>
-  ) : (
+  )
+  /*) : ( */
     /* si el usuario no ha iniciado sesión */
-    <React.StrictMode>
+ /*   <React.StrictMode>
       <NavBar isLoggedIn={ isLoggedIn }/>
       <div style = {{ marginTop:"3rem", marginLeft: "180px"}}>
       <Router>
@@ -39,7 +40,7 @@ function App() {
       </div>      
     </React.StrictMode>
 
-  );
+  );*/
 }
 
 export default App;

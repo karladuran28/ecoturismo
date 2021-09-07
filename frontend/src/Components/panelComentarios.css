@@ -40,7 +40,7 @@
 
 .comentarios_form {
     height: 75%;
-    width: 83%;
+    width: 73%;
     margin-bottom: 4px;
 }
 
@@ -54,4 +54,15 @@
 .comentario_form {
     height: 100%;
     width: 100%;
+}
+
+.box_boton_comentario{
+    height: 75%;
+    width: 8%;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
 }

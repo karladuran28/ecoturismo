@@ -8,10 +8,7 @@ const Main = () => {
     const [fotosPub, setFotosPub] = useState([]);
 
     useEffect(() => {
-        /* Ruta Betsy: "http://localhost:3000/backend/apiEcoturismo/obtenerFotos.php"
-            Ruta Karla: "http://localhost/ecoturismo/backend/apiEcoturismo/obtenerFotos.php"
-        */
-        fetch("http://localhost/ecoturismo/backend/apiEcoturismo/obtenerFotos.php")
+        fetch("http://localhost/ecoturismo/backend/apiEcoturismo/obtenerPublicaciones.php")
           .then(response => response.json())
           .then(data => {
             setFotos(data)
@@ -39,8 +36,9 @@ const Main = () => {
         fotosPub.map((item, index) => {
             if(item.id_foto === id_foto) {
                 result = item.id_publicacion;
+                
             }
-            return 1;
+            return result;
         });
         return result;
     }
