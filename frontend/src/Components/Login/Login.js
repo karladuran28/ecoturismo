@@ -49,6 +49,7 @@ const Login = ( { isLoggedIn, setIsLoggedin} ) => {
                     type: types.login,
                     payload: {
                         usuario: respuesta.id_usuario,
+                        usuario_nombre: respuesta.username,
                     }
                 })
                 

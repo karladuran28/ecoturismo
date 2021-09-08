@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import Comentario from './Comentario';
 import './panelComentarios.css';
 import boton_comentar from '../images/top.png';
+import AuthContext from '../auth/AuthContext';
 
 const PanelComentarios = ( { usuario, id_publicacion} ) => {
 
     /* NOTA: El usuario que comenta es el mismo que creó publicación, 
             debería ser el usuario que está loggeado.
     */
+
+    const { usuario:usuario_sesion } = useContext(AuthContext);
 
     const [inputValue, setInputValue] = useState('');
     const [comentarios, setComentarios] = useState([]);
@@ -34,7 +37,7 @@ const PanelComentarios = ( { usuario, id_publicacion} ) => {
         if ( inputValue.trim().length > 2 && inputValue.trim().length < 500) {
             const data = {
                 contenido: inputValue,
-                id_usuario: usuario.id_usuario,
+                id_usuario: usuario_sesion.usuario,
                 id_publicacion: id_publicacion,
             }
             
@@ -61,7 +64,7 @@ const PanelComentarios = ( { usuario, id_publicacion} ) => {
                     })}
                 </div>
                 <div className="comentarios_anadir">
-                    <img className="usuario_foto_icono foto_margin" src={usuario?.foto_perfil} alt={usuario?.nombre}></img>
+                    <img className="usuario_foto_icono foto_margin" src={usuario?.foto_perfil} alt={usuario_sesion?.nombre}></img>
                     <div className="comentarios_form">
                         <form className="comentario_form">
                                 <textarea 
