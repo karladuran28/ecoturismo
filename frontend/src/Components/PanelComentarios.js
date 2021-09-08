@@ -37,7 +37,7 @@ const PanelComentarios = ( { usuario, id_publicacion} ) => {
                 id_usuario: usuario.id_usuario,
                 id_publicacion: id_publicacion,
             }
-            console.log(data);
+            
             fetch(`http://localhost/ecoturismo/backend/apiEcoturismo/insertarComentario.php`, {
                 method: 'POST',
                 mode: 'cors', 

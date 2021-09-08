@@ -85,6 +85,17 @@ const Publicacion = () => {
         .catch(error => console.log('Hubo un error en obtener comentarios ' + error));
     }, [id])
 
+    const newLike = () => {
+        const nroLikes = parseInt(likes)+1;
+        fetch(`http://localhost/ecoturismo/backend/apiEcoturismo/updateLikesInPublicaciones.php`, {
+                method: 'POST',
+                mode: 'cors', 
+                body: JSON.stringify( { likes: nroLikes, id_publicacion: idPublicacion } )
+            })
+            .then(() => setLikes(nroLikes))
+            .catch(e => console.log("Hubo un error", e))
+    }
+
     return (
         <>
             <div className="main_content">
@@ -126,7 +137,9 @@ const Publicacion = () => {
                         </div>
                         {/* likes */}
                         <div className="publicacion_likes">
-                            <img className="icon_like" alt="heart_icon" src="https://icones.pro/wp-content/uploads/2021/02/icone-de-coeur-violet-1.png"></img>
+                            <div style={{ cursor: "pointer"}} onClick={newLike} >
+                            <img className="icon_like" alt="heart_icon" src="https://icones.pro/wp-content/uploads/2021/02/icone-de-coeur-violet-1.png" /> 
+                            </div>
                             <p id="num_likes">{likes}</p>
                         </div>
                         {/* etiquetas */}
