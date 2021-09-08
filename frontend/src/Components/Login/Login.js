@@ -1,62 +1,72 @@
-import React,{ Component } from 'react';
+import React,{ useContext, useState } from 'react';
 import "./login.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../App.js';
 import axios from 'axios';
 import md5 from 'md5';
 import Cookies from 'universal-cookie';
-const cookies = new Cookies();
-const baseUrl=`http://localhost/ecoturismo/backend/apiEcoturismo/logging.php`;
+import AuthContext from '../../auth/AuthContext';
+import { types } from '../../types/types';
+import { Redirect } from 'react-router';
 
-class Login extends Component {
-    state={
-        form:{
-            usuario: '',
-            contrasena: ''
-        }
+
+const Login = ( { isLoggedIn, setIsLoggedin} ) => {
+    const cookies = new Cookies();
+    const baseUrl=`http://localhost/ecoturismo/backend/apiEcoturismo/logging.php`;
+
+    const [state, setState] = useState({
+        usuario: '',
+        contrasena: ''
+    })
+
+
+    const { dispatch } = useContext(AuthContext);
+
+    const handleChange= (e) =>{
+
+        const new_state = {...state};
+        new_state[e.target.name] = e.target.value;
+
+        setState(new_state);
     }
 
-    handleChange=async e=>{
-        await this.setState({
-            form:{
-                ...this.state.form,
-                [e.target.name]: e.target.value
-            }
-        });
-    }
-
-    iniciarSesion=async()=>{
-        await axios.get(baseUrl+`?usuario=${this.state.form.usuario}&contrasena=${this.state.form.contrasena}`)
+    const iniciarSesion = async()=>{
+        await axios.get(baseUrl+`?usuario=${state.usuario}&contrasena=${state.contrasena}`)
         .then(response=>{
-            console.log(response.data)
             return response.data;
-            
-          
         })
         .then(response=>{
-                var respuesta=response;
+            if (response.code != "404") {
+                let respuesta=response;
                 console.log(respuesta);
                 console.log(respuesta.id_usuario);
                 cookies.set('id_usuario', respuesta.id_usuario, {path: "/"});
                 cookies.set('usuario', respuesta.username, {path: "/"});
                 alert(`Bienvenido ${respuesta.username}`);
-                this.props.setIsLoggedin(true);
+                setIsLoggedin(true);
+
+                dispatch({
+                    type: types.login,
+                    payload: {
+                        usuario: respuesta.id_usuario,
+                    }
+                })
+                
+
                 return response.data;
+            } else {
+                throw "error";
+            }
+
                 /*window.location.href="./menu";*/
-            
-             /*  
-            else{
-               
-            }*/
         })
         .catch(error=>{
             alert('El usuario o la contraseña no son correctos');
-            console.log(error);
         })
 
     }
 
-    componentDidMount() {
+    const componentDidMount = () => {
         if(cookies.get('usuario')){
            
            /* window.location.href="./menu";*/
@@ -64,8 +74,7 @@ class Login extends Component {
     }
     
 /**/
-    render() {
-        return (
+    return (
    
 
     <div className="containerPrincipal">
@@ -81,24 +90,24 @@ class Login extends Component {
               type="text"
               className="form-control"
               name="usuario"
-              onChange={this.handleChange}
+              onChange={ handleChange }
             />
             <label>Contraseña: </label>
             <input
               type="password"
               className="form-control"
               name="contrasena"
-              onChange={this.handleChange}
+              onChange={ handleChange }
             />
             <div className="registro_submit">
-                <button className="btn btn-primary" onClick={()=> this.iniciarSesion()} >Iniciar Sesión</button>
+                <button className="btn btn-primary" onClick={ iniciarSesion } >Iniciar Sesión</button>
             </div>
           </div>
           </div>
         </div>
       </div>
-        );
-    }
+    );
+
 }
 
 export default Login;

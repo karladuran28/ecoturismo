@@ -1,15 +1,23 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import './navbar.css'
 import Cookies from 'universal-cookie';
 import { Redirect } from 'react-router';
+import AuthContext from '../../auth/AuthContext';
+import { types } from '../../types/types';
 const cookies = new Cookies();
 const baseUrl=`http://localhost/ecoturismo/backend/apiEcoturismo/logging.php`;
 
 const Navbar = ( {isLoggedin} ) => {
 
+    const { dispatch } = useContext(AuthContext);
+
     const cerrarSesion=()=>{
         cookies.remove('id_usuario', {path: "/"});
         cookies.remove('username', {path: "/"});
+
+        dispatch({
+            type: types.logout,
+        })
    
     }
 
