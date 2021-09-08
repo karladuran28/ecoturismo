@@ -1,14 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Input } from 'reactstrap';
 import './Buscador.css';
-import lupa from '../../images/search.png';
-import {RenderLugares} from '../Main';
+import lupa from '../../images/magnifying-glass.png';
 
 function Buscador() {
+    const [publicacion, setPublicacion]= useState("");
 
-    const search = () => {
-        console.log("Buscando..")
-    }
+    const search = () => window.location.href = `/buscador/${publicacion}`
+    
 
     return (
         <div>
@@ -20,7 +19,10 @@ function Buscador() {
                 </div>
                 <div className="col-6">
                     <div className="buscador">
-                        <Input style={{width:"90%", borderColor: "purple", marginRight:"4px"}} placeholder="Buscar" />
+                        <Input style={{width:"90%", borderColor: "purple", marginRight:"4px"}} 
+                            placeholder="Buscar" 
+                            value= {publicacion}
+                            onChange={(e)=>setPublicacion(e.target.value)}/>
                         <img className="boton_busqueda" 
                             alt="heart_icon" 
                             src={lupa}

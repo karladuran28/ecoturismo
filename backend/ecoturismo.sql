@@ -67,8 +67,17 @@ UPDATE `ecoturismo`.`publicaciones` SET `imagen_representativa` = 'https://i.img
 
 UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '1' WHERE (`id_publicacion` = '1');
 UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '6' WHERE (`id_publicacion` = '2');
-UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '10' WHERE (`id_publicacion` = '3');
+UPDATE `ecoturismo`.`publicacio nes` SET `id_foto` = '10' WHERE (`id_publicacion` = '3');
 UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '14' WHERE (`id_publicacion` = '4');
+
+alter table publicaciones add (
+region TEXT NOT NULL);
+
+
+UPDATE `ecoturismo`.`publicaciones` SET `region` = 'costa' WHERE (`id_publicacion` = '1');
+UPDATE `ecoturismo`.`publicaciones` SET `region` = 'sierra' WHERE (`id_publicacion` = '2');
+UPDATE `ecoturismo`.`publicaciones` SET `region` = 'oriente' WHERE (`id_publicacion` = '3');
+UPDATE `ecoturismo`.`publicaciones` SET `region` = 'costa' WHERE (`id_publicacion` = '4');
 
 
 INSERT INTO `ecoturismo`.`publicaciones`(`id_usuario`,`nombre`,`likes`) VALUES
@@ -76,6 +85,7 @@ INSERT INTO `ecoturismo`.`publicaciones`(`id_usuario`,`nombre`,`likes`) VALUES
 (2,'La Mitad del Mundo',2),
 (3,'El Libertador',5),
 (4,'Yaku Ñamby',1);
+
 
 -- -----------------------------------------------------
 -- Table `ecoturismo`.`comentarios`
