@@ -1,14 +1,21 @@
-import React, {useState, useEffect} from 'react';
-import Buscador from './NavBars/Buscador.js';
+import React, {useState, useEffect} from "react";
+import Buscador from "./NavBars/Buscador";
 import './Main.css';
+import { useParams } from "react-router-dom";
 import RenderLugares from './RenderPublicaciones';
 
-const Main = () => {
+
+const PanelBusqueda = () =>{
     const [fotos, setFotos] = useState([]);
     const [fotosPub, setFotosPub] = useState([]);
+    const { nombre: nombrePub } = useParams();
 
     useEffect(() => {
-        fetch("http://localhost/ecoturismo/backend/apiEcoturismo/obtenerPublicaciones.php")
+        fetch("http://localhost/ecoturismo/backend/apiEcoturismo/getPublicacionByName.php", {
+            method: "POST",
+            mode: 'cors', 
+            body: JSON.stringify( {nombre: nombrePub } )
+        })
           .then(response => response.json())
           .then(data => {
             setFotos(data)
@@ -31,16 +38,14 @@ const Main = () => {
 
     }, [fotos])
 
-    
 
     return(
-        <div >
+        <div style={{height:"100%"}}>
             <Buscador />
             <RenderLugares fotos={fotos} fotosPub={fotosPub}/>
             
         </div>
-
     )
 }
 
-export default Main;
+export default PanelBusqueda

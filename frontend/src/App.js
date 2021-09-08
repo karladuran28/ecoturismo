@@ -7,6 +7,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
+import PanelBusqueda from './Components/PanelBusqueda';
 
 function App() {
 
@@ -16,11 +17,12 @@ function App() {
     <React.StrictMode>
       <NavBar isLoggedin={ isLoggedIn } />
       <LeftMenu />
-      <div style = {{ marginTop:"3rem", marginLeft: "180px"}}>
+      <div style = {{ marginTop:"3rem", marginLeft: "180px", height:"100%"}}>
       <Router>
           <Switch>
             <Route path={`/pub/:id`} exact component={Publicacion} />
-            <Route path={`/`} component={Main} />
+            <Route path={`/buscador/:nombre`} exact component={PanelBusqueda} />
+            <Route path={`/`} exact component={Main} />
           </Switch>
       </Router>
       </div>      

@@ -43,7 +43,7 @@ const PanelComentarios = ( { usuario, id_publicacion} ) => {
                 mode: 'cors', 
                 body: JSON.stringify(data)
             })
-                .then(response => setInputValue(""))
+                .then(() => setInputValue(""))
                 .catch(e => console.log("Hubo un error", e))
         }
         else{
