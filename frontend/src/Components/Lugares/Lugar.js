@@ -7,7 +7,7 @@ function Lugar() {
     
     useEffect(() => {
         const id_publicacion= 4;
-        fetch(`http://localhost:3000/backend/apiEcoturismo/getByID/obtenerComentarios.php?id_publicacion=${id_publicacion}`)
+        fetch(`http://localhost:4000/backend/apiEcoturismo/getByID/obtenerComentarios.php?id_publicacion=${id_publicacion}`)
           .then(response => response.json())
           .then(data => {
             setComentarios(data)

@@ -2,29 +2,35 @@
 
 include_once 'cors.php';
 include_once 'conexion.php';
-$_POST = json_decode(file_get_contents('php://input'), true);
 
-$usuario = $_POST['usuario'];
-$contrasena = $_POST['contrasena'];
+$usuario    = json_encode($_GET['usuario']);
+$contrasena = json_encode($_GET['contrasena']);
 
 $bd = obtenerConexion();
-$sql = `SELECT usuario, contrasena from personas where usuario= #{$usuario} and contrasena= #{$contrasena}` ;
+
+$sql = 'SELECT id_usuario, usuario, contrasena FROM personas WHERE usuario = '. $usuario .' AND contrasena = ' . $contrasena;
 
 $resultado = mysqli_query($bd, $sql);
-$num_rows = mysqli_num_rows($result);
+$persona = $resultado->fetch_assoc();
+$num_rows = mysqli_num_rows($resultado);
 
-
+$response = (object)[];
 
 if($num_rows>0){
     $response->code = 200;
     $response->information = "User logged";
-    $response->username = $usuario;
+    $response->id_usuario = $persona["id_usuario"];
+    $response->username = $persona["usuario"];;
 }
 else{
     $response->code = 404;
     $response->information = "Invalid user";
 }
+
 $resultado->free();
+
+echo json_encode($response);
+
 cerrarConexion($bd);   
-echo json_encode($reponse);
+
 ?>

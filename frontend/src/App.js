@@ -9,6 +9,7 @@ import Login from './Components/Login/Login';
 import Signup from './Components/Login/Signup';
 
 
+
 function App() {
   const[isLoggedIn,setIsLoggedin]=useState(false);
   return isLoggedIn ? (
@@ -18,8 +19,10 @@ function App() {
       <div style = {{ marginTop:"3rem", marginLeft: "180px"}}>
       <Router>
           <Switch>
+            
             <Route path={`/pub/:id`} exact component={Publicacion} />
             <Route path={`/`} component={Main} />
+           
           </Switch>
       </Router>
       </div>      
@@ -41,7 +44,7 @@ function App() {
       </div>      
     </React.StrictMode>
 
-  );
+  )
 }
 
 export default App;

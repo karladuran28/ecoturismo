@@ -12,7 +12,7 @@ class Login extends Component {
     state={
         form:{
             usuario: '',
-            contraseña: ''
+            contrasena: ''
         }
     }
 
@@ -26,40 +26,38 @@ class Login extends Component {
     }
 
     iniciarSesion=async()=>{
-        await axios.get(baseUrl, {params: {username: this.state.form.usuario, password: this.state.form.contraseña}})
+        await axios.get(baseUrl+`?usuario=${this.state.form.usuario}&contrasena=${this.state.form.contrasena}`)
         .then(response=>{
             console.log(response.data)
             return response.data;
+            
           
         })
         .then(response=>{
-            if(response.length>0){
-                console.log("helow")
-                var respuesta=response[0];
+                var respuesta=response;
                 console.log(respuesta);
-                
+                console.log(respuesta.id_usuario);
                 cookies.set('id_usuario', respuesta.id_usuario, {path: "/"});
-                cookies.set('apellido', respuesta.apellido, {path: "/"});
-                cookies.set('nombre', respuesta.nombre, {path: "/"});
-                cookies.set('usuario', respuesta.usuario, {path: "/"});
-                alert(`Bienvenido ${respuesta.usuario} ${respuesta.apellido}`);
+                cookies.set('usuario', respuesta.username, {path: "/"});
+                alert(`Bienvenido ${respuesta.username}`);
                 this.props.setIsLoggedin(true);
-                console.log("elpepe")
-                
+                return response.data;
                 /*window.location.href="./menu";*/
-                
-            }else{
-                alert('El usuario o la contraseña no son correctos');
-            }
+            
+             /*  
+            else{
+               
+            }*/
         })
         .catch(error=>{
+            alert('El usuario o la contraseña no son correctos');
             console.log(error);
         })
 
     }
 
     componentDidMount() {
-        if(cookies.get('username')){
+        if(cookies.get('usuario')){
            
            /* window.location.href="./menu";*/
         }
@@ -87,7 +85,7 @@ class Login extends Component {
             <input
               type="password"
               className="form-control"
-              name="contraseña"
+              name="contrasena"
               onChange={this.handleChange}
             />
             <br />
