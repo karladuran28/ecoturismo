@@ -1,11 +1,13 @@
 import React,{ Component } from 'react';
 import "./login.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../App.js';
 import axios from 'axios';
 import md5 from 'md5';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
-const baseUrl=`http://localhost/ecoturismo/backend/apiEcoturismo/updateEtiquetas.php`;
+const baseUrl=`http://localhost/ecoturismo/backend/apiEcoturismo/logging.php`;
+
 class Login extends Component {
     state={
         form:{
@@ -32,14 +34,20 @@ class Login extends Component {
         })
         .then(response=>{
             if(response.length>0){
+                console.log("helow")
                 var respuesta=response[0];
+                console.log(respuesta);
                 
                 cookies.set('id_usuario', respuesta.id_usuario, {path: "/"});
                 cookies.set('apellido', respuesta.apellido, {path: "/"});
                 cookies.set('nombre', respuesta.nombre, {path: "/"});
                 cookies.set('usuario', respuesta.usuario, {path: "/"});
-                alert(`Bienvenido ${respuesta.nombre} ${respuesta.apellido}`);
-                window.location.href="./menu";
+                alert(`Bienvenido ${respuesta.usuario} ${respuesta.apellido}`);
+                this.props.setIsLoggedin(true);
+                console.log("elpepe")
+                
+                /*window.location.href="./menu";*/
+                
             }else{
                 alert('El usuario o la contraseña no son correctos');
             }
