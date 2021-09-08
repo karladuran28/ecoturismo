@@ -1,0 +1,87 @@
+.registro_contenido {
+    margin: 0;
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 5rem;
+}
+
+.registro_contenido * {
+    margin-bottom: 8px;
+}
+
+.registro_titulo {
+    width: fit-content;
+    margin-bottom: 12px;
+}
+
+.registro_param {
+    display: flex;
+    flex-direction: column;
+}
+
+.registro_param * {
+    margin-bottom: 2px;
+    width: 100%;
+}
+
+.span_registro {
+    color: rgb(212, 0, 124);
+    font-size: 12px;
+}
+
+.registro_nombre {
+    flex-direction: row;
+}
+
+.registro_cont_form {
+    width: 100%;
+}
+
+.registro_nombre_valor:first-child {
+    margin-right: 10px;
+}
+
+.registro_nombre_valor {
+    display: flex;
+    flex-direction: column;
+}
+
+.registro_submit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.registro_submit input {
+    margin-top: 1rem;
+}
+
+.registro_contenido input {
+    border-radius: 5px;
+    border: 1px solid rgb(224, 224, 224);
+    padding: 0.6rem;
+}
+
+.img_registro {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.registro_container {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    border: 1px solid rgb(219, 219, 219);
+    width: 65%;
+    height: 75%;
+}
+.img_container {
+    width: 40%;
+}

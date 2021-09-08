@@ -12,7 +12,7 @@ function App() {
 
   const isLoggedIn = false;
 
-  return (/* isLoggedIn ? (*/
+  return  isLoggedIn ? (
     <React.StrictMode>
       <NavBar isLoggedin={ isLoggedIn } />
       <LeftMenu />
@@ -25,22 +25,22 @@ function App() {
       </Router>
       </div>      
     </React.StrictMode>
-  )
-  /*) : ( */
+  
+  ) : (
     /* si el usuario no ha iniciado sesión */
- /*   <React.StrictMode>
+   <React.StrictMode>
       <NavBar isLoggedIn={ isLoggedIn }/>
-      <div style = {{ marginTop:"3rem", marginLeft: "180px"}}>
-      <Router>
-          <Switch>
-            <Route path={`/signup`} exact component={Signup}/>
-            <Route path={`/`} component={Login}/>
-          </Switch>
-      </Router>
+      <div className="loginSign_container">
+        <Router>
+            <Switch>
+              <Route path={`/signup`} exact component={Signup}/>
+              <Route path={`/`} component={Login}/>
+            </Switch>
+        </Router>
       </div>      
     </React.StrictMode>
 
-  );*/
+  );
 }
 
 export default App;

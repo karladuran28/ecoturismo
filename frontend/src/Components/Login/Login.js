@@ -5,7 +5,7 @@ import axios from 'axios';
 import md5 from 'md5';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
-const baseUrl=`http://localhost/ecoturismo/backend/apiEcoturismo/updateEtiquetas.php`;
+const baseUrl=`http://localhost/ecoturismo/backend/apiEcoturismo/obtenerPersonas.php`;
 class Login extends Component {
     state={
         form:{

@@ -42,3 +42,11 @@ html, body, #root{
     transform: rotate(360deg);
   }
 }
+
+.loginSign_container  {
+  padding-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+ }
