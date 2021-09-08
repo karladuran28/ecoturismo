@@ -9,10 +9,9 @@ const LeftMenu = () => {
                 
 
                 <div className='toggleContenido'>
-                    <a href='/'>  Costa</a>
-                    <a href='/'> Sierra </a>
-                    <a href='/'> Oriente </a>
-                    <a href='/'>  Favoritos </a>
+                    <a href='/filtro/costa'>  Costa</a>
+                    <a href='/filtro/sierra'> Sierra </a>
+                    <a href='/filtro/oriente'> Oriente </a>
                     
 
                 </div>

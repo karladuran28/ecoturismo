@@ -6,17 +6,13 @@ include_once 'conexion.php';
 $bd = obtenerConexion();
 $_POST = json_decode(file_get_contents('php://input'), true);
 
-$id_usuario = $_POST['id_usuario'];
-$nombre = $_POST['nombre'];
 $likes = $_POST['likes'];
-$id_publicaciones = $_POST['id_publicaciones'];
+$id_publicacion = $_POST['id_publicacion'];
 
 
  $sql =  'UPDATE publicaciones
-            SET nombre = "' . $nombre . '", 
-           likes = "' . $likes . '",
-           id_usuario = "' . $id_usuario . '"
-            WHERE id_usuario = "' . $id_publicaciones .'" ';
+            SET likes = "' . $likes . '"
+            WHERE id_publicacion = "' . $id_publicacion .'" ';
 if( mysqli_query($bd, $sql) ){
         echo "Se actualizó el elemento exitosamente";
 }
