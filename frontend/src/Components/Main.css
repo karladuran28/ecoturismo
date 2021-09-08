@@ -1,7 +1,7 @@
 .tarjeta_lugares{
     display: flex;
     flex-wrap: wrap;
-
+    width: 100%;
 }
 .tarjeta_lugar{
     
@@ -11,8 +11,6 @@
     margin: 0.8rem;
 
 }
-
-
 
 .nombre_ruta{
     position: absolute;
@@ -58,4 +56,16 @@
     align-items: center;
     font-size: 45px;
     color: #afafaf;
+}
+
+@media only screen  and (max-width: 950px ){
+    .tarjeta_lugar {
+        width: 45%;
+    }
+}
+
+@media only screen  and (max-width: 700px ){
+    .tarjeta_lugar {
+        width: 80%;
+    }
 }

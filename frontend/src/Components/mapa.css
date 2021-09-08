@@ -1,9 +1,9 @@
 .mapa_container {
     display: flex;
-    height: 25rem;
-    width: 80%;
+    height: 30rem;
+    width: 100%;
     align-items: center;
     justify-content: center;
-    margin: 0rem 4rem;
+    padding: 1rem 4rem;
     border-radius: 10px;
 }

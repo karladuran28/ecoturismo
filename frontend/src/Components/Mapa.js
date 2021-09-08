@@ -17,8 +17,8 @@ const Mapa = ({lugares}) => {
 
     const containerStyle = {
         width: '100%',
-        height: '25rem',
-        
+        height: '100%',
+        borderRadius: '10px',
     };
 
     const { isLoaded } = useJsApiLoader({

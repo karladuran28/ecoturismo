@@ -8,7 +8,39 @@
     z-index: -100;
 }
 
+.containerPrincipal {
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    border: 1px solid rgb(219, 219, 219);
+    width: 65%;
+    height: 75%;
+}
 
-.form-group { height: 400px; width: 500px; align-content: center; }
-.containerSecundario {align-content: center; }
 
+.form-group { 
+    height: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+ }
+
+.containerSecundario {
+    margin: 0;
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 5rem;
+ }
+
+ .containerSecundario * {
+     margin-bottom: 10px;
+ }
+
+ .containerSecundario button {
+     margin-top: 20px;
+ }

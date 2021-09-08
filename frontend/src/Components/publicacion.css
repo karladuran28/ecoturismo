@@ -115,3 +115,24 @@
     color: #5d5d5d;
 }
 
+@media only screen  and (max-width: 950px ){
+    .publicacion_container {
+        width: 96%;
+        flex-direction: column;
+        margin: 0.6rem 0.6rem;
+    }
+    .publicacion_panel_izq {
+        width: 100%;
+        overflow-y: unset;
+    }
+    .publicacion_panel_der {
+        width: 100%;
+    }
+    .toggleMenu {
+        width: 20%;
+    }
+}
+
+.pub_mapa_container {
+    width: 100%;
+}

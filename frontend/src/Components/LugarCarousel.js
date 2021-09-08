@@ -23,7 +23,7 @@ const LugarCarousel = ( {lugares, id_publicacion} ) => {
 
     return (
         <div className="carousel_container">
-            <div id="carouselExampleIndicators" className="carousel slide w-75 h-75" data-ride="carousel" interval="2000">
+            <div id="carouselExampleIndicators" className="carousel slide w-100 h-100" data-ride="carousel" interval="2000">
                 <ol className="carousel-indicators">
                     {fotos.map((item, index) => {
                         if (index === 0) {

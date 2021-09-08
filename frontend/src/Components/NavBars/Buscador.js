@@ -17,9 +17,9 @@ function Buscador() {
                         Rutas
                     </div>
                 </div>
-                <div className="col-6">
+                <div className="col-lg-6 col-md-8 col-sm-8">
                     <div className="buscador">
-                        <Input style={{width:"90%", borderColor: "purple", marginRight:"4px"}} 
+                        <Input style={{width:"85%", borderColor: "purple", marginRight:"4px"}} 
                             placeholder="Buscar" 
                             value= {publicacion}
                             onChange={(e)=>setPublicacion(e.target.value)}/>

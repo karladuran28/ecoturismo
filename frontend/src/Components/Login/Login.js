@@ -69,28 +69,31 @@ class Login extends Component {
    
 
     <div className="containerPrincipal">
+        <div className="img_container">
+            <img alt="montana_ecuador" src="https://i.imgur.com/ceACQbv.jpg" className="img_registro"/>
+        </div>
         <div className="containerSecundario">
-          <div className="form-group">
+          <h5 className="registro_titulo">EcoTurismo Ecuador</h5>
+          <div className="registro_cont_form">
+          <div className="form-group registro_form">
             <label>Usuario: </label>
-            <br />
             <input
               type="text"
               className="form-control"
               name="usuario"
               onChange={this.handleChange}
             />
-            <br />
             <label>Contraseña: </label>
-            <br />
             <input
               type="password"
               className="form-control"
               name="contrasena"
               onChange={this.handleChange}
             />
-            <br />
-            <button className="btn btn-primary" onClick={()=> this.iniciarSesion()} >Iniciar Sesión</button>
-            
+            <div className="registro_submit">
+                <button className="btn btn-primary" onClick={()=> this.iniciarSesion()} >Iniciar Sesión</button>
+            </div>
+          </div>
           </div>
         </div>
       </div>

@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $sql = 'INSERT INTO personas (usuario,contrasena,nombre,apellido,correo,foto_perfil) 
             VALUES ("' . $usuario . '", 
-            "' . md5($contrasena) . '",
+            "' . $contrasena . '",
             "' . $nombre . '",
             "' . $apellido . '",
             "' . $correo . '", 
