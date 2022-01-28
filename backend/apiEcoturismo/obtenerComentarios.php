@@ -1,5 +1,7 @@
 <?php
 
+phpinfo();
+
 include_once 'cors.php';
 include_once 'conexion.php';
 obtenerInfoFromTabla("comentarios");

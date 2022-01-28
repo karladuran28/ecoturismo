@@ -67,7 +67,7 @@ UPDATE `ecoturismo`.`publicaciones` SET `imagen_representativa` = 'https://i.img
 
 UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '1' WHERE (`id_publicacion` = '1');
 UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '6' WHERE (`id_publicacion` = '2');
-UPDATE `ecoturismo`.`publicacio nes` SET `id_foto` = '10' WHERE (`id_publicacion` = '3');
+UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '10' WHERE (`id_publicacion` = '3');
 UPDATE `ecoturismo`.`publicaciones` SET `id_foto` = '14' WHERE (`id_publicacion` = '4');
 
 alter table publicaciones add (
